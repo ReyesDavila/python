@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo Python-JavaScript</title>
+</head>
+<body>
+    <button onclick="obtenerValor()">Obtener Valor</button>
+    <p id="resultado"></p>
+
+    <script>
+        function obtenerValor() {
+            fetch('http://localhost:5000/01')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('resultado').textContent = data.valor;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>
